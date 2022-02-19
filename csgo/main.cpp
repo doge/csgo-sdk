@@ -5,7 +5,10 @@
 
 #include "sdk/interfaces/i_client.h"
 #include "sdk/interfaces/i_entity_list.h"
-#include "sdk/interfaces/i_client_entity.h"
+#include "sdk/interfaces/c_base_entity.h"
+#include "sdk/interfaces/variables.h"
+
+#include "cheat/hooks/hooks.h"
 
 void cheat(HMODULE instance) {
 
@@ -18,10 +21,13 @@ void cheat(HMODULE instance) {
 
 	{
 		// setup interfaces and netvars
-		g_client = utils::get_interface<i_client>("VClient018", "client.dll");
-		g_entity_list = utils::get_interface<i_entity_list>("VClientEntityList003", "client.dll");
+		interfaces::client = utils::get_interface<i_client>("VClient018", "client.dll");
+		interfaces::client_mode = **reinterpret_cast<void***>((*reinterpret_cast<unsigned int**>(interfaces::client))[10] + 5);
+		interfaces::entity_list = utils::get_interface<i_entity_list>("VClientEntityList003", "client.dll");
+		interfaces::engine_client = utils::get_interface<i_engine_client>("VEngineClient014", "engine.dll");
 
 		netvars::setup();
+		hooks::setup();
 
 		std::cout << "csgo-sdk";
 
@@ -30,7 +36,8 @@ void cheat(HMODULE instance) {
 			
 			// iterate over all the entities
 			for (auto i = 0; i < 64; i++) {
-				const auto ent = g_entity_list->get_client_entity(i);
+
+				const auto ent = reinterpret_cast<c_base_entity*>(interfaces::entity_list->get_client_entity(i));
 
 				// check for valid entity
 				if (!ent) {
@@ -43,6 +50,8 @@ void cheat(HMODULE instance) {
 
 		}
 	}
+
+	hooks::destroy();
 
 	// detach console and exit thread
 	if (file) {

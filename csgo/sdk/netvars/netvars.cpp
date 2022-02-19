@@ -2,6 +2,8 @@
 #include "../utilities/utils.h"
 
 #include "../interfaces/i_client.h"
+#include "../interfaces/variables.h"
+
 
 #include <format>
 #include <ctype.h>
@@ -9,7 +11,7 @@
 void netvars::setup() {
 	
 	// loop through the linked list
-	for (auto client_class = g_client->get_all_classes(); client_class; client_class = client_class->next) {
+	for (auto client_class = interfaces::client->get_all_classes(); client_class; client_class = client_class->next) {
 
 		// valid table?
 		if (client_class->recv_table) {
