@@ -69,7 +69,14 @@ void __stdcall hooks::paint_traverse(unsigned int panel, bool force_repaint, boo
 	if (fnv::hash(interfaces::vgui_panel->get_class_name(panel)) == fnv::hash("MatSystemTopPanel")) {
 
 		// do rendering here
-		render::text("csgo-sdk", 10, 10, fonts::tahoma, color(255, 255, 255, 255));
+		render::text("csgo-sdk", 10, 10, fonts::tahoma);
+		render::text("colorful", 10, 10 + 16, fonts::tahoma_bold, color(66, 135, 245, 255));
+
+		render::filled_rect(10, 26 + 16, 100, 50, color(255, 255, 255, 255));
+
+		render::outlined_rect(10, 42 + 16, 100, 100, color(255, 255, 255, 255));
+
+		render::line(10, 50 + 58, 100, 124, color(255, 255, 255, 255));
 	}
 
 	o_paint_traverse_hook(interfaces::vgui_panel, panel, force_repaint, allow_force);

@@ -5,6 +5,7 @@
 #include "../../sdk/interfaces/variables.h"
 
 void render::text(const char* text, int x, int y, int font, color c) {
+
 	wchar_t to_render[32];
 	swprintf(to_render, 32, L"%hs", text);
 
@@ -12,4 +13,28 @@ void render::text(const char* text, int x, int y, int font, color c) {
 	interfaces::surface->draw_text_pos(x, y);
 	interfaces::surface->text_set_color(c.r, c.g, c.b, c.a);
 	interfaces::surface->draw_render_text(to_render, wcslen(to_render));
+}
+
+void render::filled_rect(int x, int y, int w, int h, color c) {
+
+	interfaces::surface->draw_set_color(c.r, c.g, c.b, c.a);
+	interfaces::surface->draw_filled_rect(x, y, w, h);
+}
+
+void render::outlined_rect(int x, int y, int w, int h, color c) {
+
+	interfaces::surface->draw_set_color(c.r, c.g, c.b, c.a);
+	interfaces::surface->draw_outlined_rect(x, y, w, h);
+}
+
+void render::line(int x1, int y1, int x2, int y2, color c) {
+
+	interfaces::surface->draw_set_color(c.r, c.g, c.b, c.a);
+	interfaces::surface->draw_line(x1, y1, x2, y2);
+}
+
+void render::poly_line(int* x, int* y, int poly_count, color c) {
+
+	interfaces::surface->draw_set_color(c.r, c.g, c.b, c.a);
+	interfaces::surface->draw_poly_line(x, y, poly_count);
 }
