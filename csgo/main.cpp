@@ -22,12 +22,15 @@ void cheat(HMODULE instance) {
 	freopen_s(&file, "CONOUT$", "w", stdout);
 
 	{
-		// setup interfaces and netvars
+		// setup interfaces
 		interfaces::client = utils::get_interface<i_client>("VClient018", "client.dll");
 		interfaces::client_mode = **reinterpret_cast<void***>((*reinterpret_cast<unsigned int**>(interfaces::client))[10] + 5);
 		interfaces::entity_list = utils::get_interface<i_entity_list>("VClientEntityList003", "client.dll");
 		interfaces::engine = utils::get_interface<i_engine_client>("VEngineClient014", "engine.dll");
+		interfaces::surface = utils::get_interface<i_surface>("VGUI_Surface031", "vguimatsurface.dll");
+		interfaces::vgui_panel = utils::get_interface<i_panel>("VGUI_Panel009", "vgui2.dll");
 
+		// netvars and hooks
 		netvars::setup();
 		hooks::setup();
 

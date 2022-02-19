@@ -2,11 +2,12 @@
 
 #include "hooks.h"
 
+#include "../../sdk/valve/flags.h"
+
 #include "../../sdk/interfaces/variables.h"
-#include "../../dependencies/minhook/MinHook.h"
 #include "../../sdk/interfaces/c_base_entity.h"
 
-#include "../../sdk/valve/flags.h"
+#include "../../dependencies/minhook/MinHook.h"
 
 void hooks::setup() {
 
@@ -15,7 +16,13 @@ void hooks::setup() {
 	MH_CreateHook(
 		(*static_cast<void***>(interfaces::client_mode))[24],
 		&hooks::create_move,
-		reinterpret_cast<void**>(&original_create_move)
+		reinterpret_cast<void**>(&o_create_move_hook)
+	);
+
+	MH_CreateHook(
+		reinterpret_cast<void*>(static_cast<unsigned int>((*reinterpret_cast<int**>(interfaces::vgui_panel))[41])),
+		&hooks::paint_traverse,
+		reinterpret_cast<void**>(&o_paint_traverse_hook)
 	);
 
 	MH_EnableHook(MH_ALL_HOOKS);
@@ -30,7 +37,7 @@ void hooks::destroy() {
 
 bool __stdcall hooks::create_move(float frame_time, c_user_cmd* cmd) {
 
-	const bool result = original_create_move(interfaces::client_mode, frame_time, cmd);
+	const bool result = o_create_move_hook(interfaces::client_mode, frame_time, cmd);
 
 	if (!cmd || !cmd->command_number) {
 		return result;
@@ -44,4 +51,18 @@ bool __stdcall hooks::create_move(float frame_time, c_user_cmd* cmd) {
 	}
 
 	return result;	
+}
+
+
+void __stdcall hooks::paint_traverse(unsigned int panel, bool force_repaint, bool allow_force) {
+
+	// make sure we render on the top panel
+	if (fnv::hash(interfaces::vgui_panel->get_class_name(panel)) == fnv::hash("MatSystemTopPanel")) {
+
+		// do rendering here
+		interfaces::surface->draw_set_color(255, 255, 255, 255);
+		interfaces::surface->draw_filled_rect(10, 10, 100, 100);
+	}
+
+	o_paint_traverse_hook(interfaces::vgui_panel, panel, force_repaint, allow_force);
 }
