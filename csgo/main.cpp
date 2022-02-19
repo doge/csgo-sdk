@@ -2,6 +2,7 @@
 #include <iostream>
 
 #include "sdk/netvars/netvars.h"
+#include "sdk/utilities/utils.h"
 
 #include "sdk/interfaces/i_client.h"
 #include "sdk/interfaces/i_entity_list.h"
@@ -9,6 +10,7 @@
 #include "sdk/interfaces/variables.h"
 
 #include "cheat/hooks/hooks.h"
+
 
 void cheat(HMODULE instance) {
 
@@ -24,7 +26,7 @@ void cheat(HMODULE instance) {
 		interfaces::client = utils::get_interface<i_client>("VClient018", "client.dll");
 		interfaces::client_mode = **reinterpret_cast<void***>((*reinterpret_cast<unsigned int**>(interfaces::client))[10] + 5);
 		interfaces::entity_list = utils::get_interface<i_entity_list>("VClientEntityList003", "client.dll");
-		interfaces::engine_client = utils::get_interface<i_engine_client>("VEngineClient014", "engine.dll");
+		interfaces::engine = utils::get_interface<i_engine_client>("VEngineClient014", "engine.dll");
 
 		netvars::setup();
 		hooks::setup();

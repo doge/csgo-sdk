@@ -36,9 +36,6 @@
     <ClCompile Include="dependencies\minhook\trampoline.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cheat\hooks\create_move.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="cheat\hooks\hooks.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -90,9 +87,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="dependencies\minhook\trampoline.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="cheat\hooks\create_move.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cheat\hooks\hooks.h">

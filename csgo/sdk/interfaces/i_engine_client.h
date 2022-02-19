@@ -1,9 +1,5 @@
 #pragma once
 
-#include "../utilities/utils.h"
-#include"../netvars/netvars.h"
-#include "../valve/classes/client_class.h"
-
 class i_engine_client
 {
 public:

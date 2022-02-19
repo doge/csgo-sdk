@@ -2,10 +2,6 @@
 
 #include <Windows.h>
 
-#define concat_impl(x, y) x##y
-#define macro_concat(x, y) CONCAT_IMPL(x, y)
-#define pad(size) BYTE macro_concat(pad, __COUNTER__)[SIZE];
-
 namespace utils {
 
 	template <typename T>

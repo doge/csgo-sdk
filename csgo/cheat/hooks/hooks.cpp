@@ -36,7 +36,7 @@ bool __stdcall hooks::create_move(float frame_time, c_user_cmd* cmd) {
 		return result;
 	}
 
-	auto local_player = reinterpret_cast<c_base_entity*>(interfaces::entity_list->get_client_entity(interfaces::engine_client->local_player()));
+	auto local_player = reinterpret_cast<c_base_entity*>(interfaces::entity_list->get_client_entity(interfaces::engine->local_player()));
 
 	// bhop
 	if (cmd->buttons & command_buttons::in_jump && !(local_player->flags() & entity_flags::fl_onground)) {
