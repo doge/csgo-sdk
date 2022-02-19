@@ -122,5 +122,8 @@
     <ClInclude Include="cheat\render\render.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="sdk\interfaces\c_base_player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
