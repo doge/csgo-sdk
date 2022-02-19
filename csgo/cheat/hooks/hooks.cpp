@@ -9,6 +9,9 @@
 
 #include "../../dependencies/minhook/MinHook.h"
 
+#include "../render/render.h"
+#include "../render/fonts/fonts.h"
+
 void hooks::setup() {
 
 	MH_Initialize();
@@ -24,6 +27,13 @@ void hooks::setup() {
 		&hooks::paint_traverse,
 		reinterpret_cast<void**>(&o_paint_traverse_hook)
 	);
+
+	MH_CreateHook(
+		reinterpret_cast<void*>(static_cast<unsigned int>((*reinterpret_cast<int**>(interfaces::surface))[116])),
+		&hooks::screen_size_changed,
+		reinterpret_cast<void**>(&o_screen_size_changed_hook)
+	);
+
 
 	MH_EnableHook(MH_ALL_HOOKS);
 }
@@ -59,9 +69,16 @@ void __stdcall hooks::paint_traverse(unsigned int panel, bool force_repaint, boo
 	if (fnv::hash(interfaces::vgui_panel->get_class_name(panel)) == fnv::hash("MatSystemTopPanel")) {
 
 		// do rendering here
-		interfaces::surface->draw_set_color(255, 255, 255, 255);
-		interfaces::surface->draw_filled_rect(10, 10, 100, 100);
+		render::text("csgo-sdk", 10, 10, fonts::tahoma, color(255, 255, 255, 255));
 	}
 
 	o_paint_traverse_hook(interfaces::vgui_panel, panel, force_repaint, allow_force);
+}
+
+void __stdcall hooks::screen_size_changed(int previous_width, int previous_height) {
+
+	o_screen_size_changed_hook(interfaces::surface, previous_width, previous_height);
+
+	// re-setup fonts when the resolution is changed
+	fonts::setup();
 }

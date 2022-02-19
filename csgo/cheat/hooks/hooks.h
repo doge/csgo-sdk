@@ -14,4 +14,8 @@ namespace hooks {
 	void __stdcall paint_traverse(unsigned int panel, bool force_repaint, bool allow_force);
 	using paint_traverse_hook = void(__thiscall*)(void*, unsigned int, bool, bool);
 	static paint_traverse_hook o_paint_traverse_hook = nullptr;
+
+	void __stdcall screen_size_changed(int previous_width, int previous_height);
+	using screen_size_changed_hook = void(__thiscall*)(void*, int, int);
+	static screen_size_changed_hook o_screen_size_changed_hook = nullptr;
 }

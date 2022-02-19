@@ -11,6 +11,7 @@
 
 #include "cheat/hooks/hooks.h"
 
+#include "cheat/render/fonts/fonts.h"
 
 void cheat(HMODULE instance) {
 
@@ -30,8 +31,9 @@ void cheat(HMODULE instance) {
 		interfaces::surface = utils::get_interface<i_surface>("VGUI_Surface031", "vguimatsurface.dll");
 		interfaces::vgui_panel = utils::get_interface<i_panel>("VGUI_Panel009", "vgui2.dll");
 
-		// netvars and hooks
+		// netvars, fonts and hooks
 		netvars::setup();
+		fonts::setup();
 		hooks::setup();
 
 		std::cout << "csgo-sdk";
