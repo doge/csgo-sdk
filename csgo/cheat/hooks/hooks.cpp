@@ -53,7 +53,6 @@ bool __stdcall hooks::create_move(float frame_time, c_user_cmd* cmd) {
 	return result;	
 }
 
-
 void __stdcall hooks::paint_traverse(unsigned int panel, bool force_repaint, bool allow_force) {
 
 	// make sure we render on the top panel

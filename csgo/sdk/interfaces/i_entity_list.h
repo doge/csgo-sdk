@@ -30,5 +30,3 @@ public:
 	virtual void				set_max_entities(int maxents) = 0;
 	virtual int					get_max_entities() = 0;
 };
-
-inline i_entity_list* g_entity_list;

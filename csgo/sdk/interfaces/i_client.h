@@ -14,5 +14,3 @@ public:
 		return (*(func**)this)[ 8 ](this);
 	}
 };
-
-inline i_client* g_client;

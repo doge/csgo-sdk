@@ -10,5 +10,3 @@ public:
 		return (*(func**)this)[12](this);
 	};
 };
-
-inline i_engine_client* g_engine_client;
