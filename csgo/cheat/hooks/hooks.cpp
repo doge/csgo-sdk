@@ -2,7 +2,9 @@
 
 #include "hooks.h"
 
-#include "../gui/gui.hpp"
+#include "../gui/gui.h"
+
+#include "../input/input.h"
 
 #include "../../sdk/valve/flags.h"
 
@@ -64,7 +66,7 @@ bool __stdcall hooks::create_move(float frame_time, c_user_cmd* cmd) {
 
 	return result;	
 }
-#include "../input/input.h"
+
 void __stdcall hooks::paint_traverse(unsigned int panel, bool force_repaint, bool allow_force) {
 
 	// make sure we render on the top panel
@@ -103,6 +105,4 @@ void __stdcall hooks::screen_size_changed(int previous_width, int previous_heigh
 
 // frame stage notify
 
-// lock cursor 
-
-// override view (fov, grenade prediction)
+// override view

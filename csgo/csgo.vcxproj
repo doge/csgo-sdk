@@ -163,7 +163,7 @@
     <ClCompile Include="sdk\netvars\netvars.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cheat\gui\gui.hpp" />
+    <ClInclude Include="cheat\gui\gui.h" />
     <ClInclude Include="cheat\hooks\hooks.h" />
     <ClInclude Include="cheat\input\input.h" />
     <ClInclude Include="cheat\render\fonts\fonts.h" />

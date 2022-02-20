@@ -2,4 +2,6 @@
 
 namespace gui {
 	inline bool is_open = false;
+
+	void render();
 }

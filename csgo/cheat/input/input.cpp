@@ -2,7 +2,7 @@
 
 #include "input.h"
 
-#include "../gui/gui.hpp"
+#include "../gui/gui.h"
 
 void input::update() {
 

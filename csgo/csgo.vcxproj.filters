@@ -131,7 +131,7 @@
     <ClInclude Include="sdk\interfaces\c_base_player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cheat\gui\gui.hpp">
+    <ClInclude Include="cheat\gui\gui.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cheat\input\input.h">
