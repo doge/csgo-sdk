@@ -149,7 +149,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="cheat\gui\gui.cpp" />
     <ClCompile Include="cheat\hooks\hooks.cpp" />
+    <ClCompile Include="cheat\input\input.cpp" />
     <ClCompile Include="cheat\render\fonts\fonts.cpp" />
     <ClCompile Include="cheat\render\render.cpp" />
     <ClCompile Include="dependencies\minhook\buffer.c" />
@@ -161,7 +163,9 @@
     <ClCompile Include="sdk\netvars\netvars.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cheat\gui\gui.hpp" />
     <ClInclude Include="cheat\hooks\hooks.h" />
+    <ClInclude Include="cheat\input\input.h" />
     <ClInclude Include="cheat\render\fonts\fonts.h" />
     <ClInclude Include="cheat\render\render.h" />
     <ClInclude Include="dependencies\minhook\buffer.h" />
@@ -172,6 +176,7 @@
     <ClInclude Include="dependencies\minhook\hde\table64.h" />
     <ClInclude Include="dependencies\minhook\MinHook.h" />
     <ClInclude Include="dependencies\minhook\trampoline.h" />
+    <ClInclude Include="sdk\interfaces\c_base_player.h" />
     <ClInclude Include="sdk\interfaces\c_user_cmd.h" />
     <ClInclude Include="sdk\interfaces\i_client.h" />
     <ClInclude Include="sdk\interfaces\c_base_entity.h" />

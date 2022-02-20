@@ -45,6 +45,12 @@
     <ClCompile Include="cheat\render\render.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="cheat\gui\gui.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cheat\input\input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sdk\netvars\netvars.h">
@@ -120,6 +126,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cheat\render\render.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\interfaces\c_base_player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cheat\gui\gui.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cheat\input\input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

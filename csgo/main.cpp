@@ -9,7 +9,9 @@
 #include "sdk/interfaces/c_base_entity.h"
 #include "sdk/interfaces/variables.h"
 
+#include "cheat/gui/gui.hpp"
 #include "cheat/hooks/hooks.h"
+#include "cheat/input/input.h"
 
 #include "cheat/render/fonts/fonts.h"
 
@@ -36,11 +38,23 @@ void cheat(HMODULE instance) {
 		fonts::setup();
 		hooks::setup();
 
-		std::cout << "csgo-sdk";
+		std::cout << "csgo-sdk\n";
+
+		interfaces::engine->client_cmd_unrestricted("clear");
+		interfaces::engine->client_cmd_unrestricted("echo csgo-sdk");
+
+		int screen_w, screen_h;
+		interfaces::engine->screen_size(screen_w, screen_h);
+
+		std::cout << screen_w << "x" << screen_h << "\n";
 
 		// main
 		while (!GetAsyncKeyState(VK_END)) {
-			
+
+			// update and handle input
+			input::update();
+			input::handle();
+
 			// iterate over all the entities
 			for (auto i = 0; i < 64; i++) {
 

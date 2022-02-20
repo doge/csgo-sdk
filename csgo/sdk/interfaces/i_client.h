@@ -7,10 +7,10 @@
 class i_client
 {
 public:
-	// 0x8
+
 	client_class* get_all_classes()
 	{
 		using func = client_class * (__thiscall*)(i_client*);
-		return (*(func**)this)[ 8 ](this);
+		return (*(func**)this)[8](this);
 	}
 };

@@ -2,6 +2,8 @@
 
 #include "hooks.h"
 
+#include "../gui/gui.hpp"
+
 #include "../../sdk/valve/flags.h"
 
 #include "../../sdk/interfaces/variables.h"
@@ -62,11 +64,13 @@ bool __stdcall hooks::create_move(float frame_time, c_user_cmd* cmd) {
 
 	return result;	
 }
-
+#include "../input/input.h"
 void __stdcall hooks::paint_traverse(unsigned int panel, bool force_repaint, bool allow_force) {
 
 	// make sure we render on the top panel
-	if (fnv::hash(interfaces::vgui_panel->get_class_name(panel)) == fnv::hash("MatSystemTopPanel")) {
+	auto panel_name = fnv::hash(interfaces::vgui_panel->get_class_name(panel));
+
+	if (panel_name == fnv::hash("MatSystemTopPanel")) {
 
 		// do rendering here
 		render::text("csgo-sdk", 10, 10, fonts::tahoma);
@@ -77,6 +81,11 @@ void __stdcall hooks::paint_traverse(unsigned int panel, bool force_repaint, boo
 		render::outlined_rect(10, 42 + 16, 100, 100, color(255, 255, 255, 255));
 
 		render::line(10, 50 + 58, 100, 124, color(255, 255, 255, 255));
+	}
+	else if (panel_name == fnv::hash("FocusOverlayPanel")) {
+
+		interfaces::vgui_panel->mouse_input_enabled(panel, gui::is_open);
+		interfaces::vgui_panel->keyboard_input_enabled(panel, gui::is_open);
 	}
 
 	o_paint_traverse_hook(interfaces::vgui_panel, panel, force_repaint, allow_force);
@@ -89,3 +98,11 @@ void __stdcall hooks::screen_size_changed(int previous_width, int previous_heigh
 	// re-setup fonts when the resolution is changed
 	fonts::setup();
 }
+
+// drawmodel execute
+
+// frame stage notify
+
+// lock cursor 
+
+// override view (fov, grenade prediction)
