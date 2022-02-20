@@ -4,28 +4,36 @@
 
 #include "../gui/gui.h"
 
-void input::update() {
-
-	for (int i = 0; i < 256; i++) {
-		click_key_states[i] = GetAsyncKeyState(i) & 1;
-		hold_key_states[i] = GetAsyncKeyState(i);
-	}
-}
-
 bool input::is_holding(int keycode) {
 
-	return hold_key_states[keycode];
+	return GetAsyncKeyState(keycode);
 }
 
 bool input::click(int keycode) {
 
-	return click_key_states[keycode];
+	return GetAsyncKeyState(keycode) & 1;
 }
 
 void input::handle() {
 
-	// gui
+	// menu input handlers
 	if (input::click(VK_INSERT)) {
+
 		gui::is_open = !gui::is_open;
+	}
+
+	if (gui::is_open && input::click(VK_DOWN)) {
+
+		if (gui::selected_item < gui::element_count - 1) {
+
+			gui::selected_item += 1;
+		}
+	}
+	else if (gui::is_open && input::click(VK_UP)) {
+
+		if (gui::selected_item > 0) {
+
+			gui::selected_item -= 1;
+		}
 	}
 }

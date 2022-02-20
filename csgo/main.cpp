@@ -9,7 +9,9 @@
 #include "sdk/interfaces/c_base_entity.h"
 #include "sdk/interfaces/variables.h"
 
-#include "cheat/gui/gui.hpp"
+#include "cheat/gui/gui.h"
+#include "cheat/gui/settings.h"
+
 #include "cheat/hooks/hooks.h"
 #include "cheat/input/input.h"
 
@@ -51,8 +53,6 @@ void cheat(HMODULE instance) {
 		// main
 		while (!GetAsyncKeyState(VK_END)) {
 
-			// update and handle input
-			input::update();
 			input::handle();
 
 			// iterate over all the entities
@@ -62,11 +62,15 @@ void cheat(HMODULE instance) {
 
 				// check for valid entity
 				if (!ent) {
+
 					continue;
 				}
 
 				// radar hack
-				ent->spotted() = true;
+				if (gui::settings::radar) {
+
+					ent->spotted() = true;
+				}
 			}
 
 		}

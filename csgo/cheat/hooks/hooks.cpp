@@ -3,6 +3,7 @@
 #include "hooks.h"
 
 #include "../gui/gui.h"
+#include "../gui/settings.h"
 
 #include "../input/input.h"
 
@@ -60,8 +61,13 @@ bool __stdcall hooks::create_move(float frame_time, c_user_cmd* cmd) {
 	auto local_player = reinterpret_cast<c_base_player*>(interfaces::entity_list->get_client_entity(interfaces::engine->local_player()));
 
 	// bhop
-	if (cmd->buttons & command_buttons::in_jump && !(local_player->flags() & entity_flags::fl_onground)) {
-		cmd->buttons &= ~command_buttons::in_jump;
+	if (gui::settings::bhop) {
+
+		if (cmd->buttons & command_buttons::in_jump && 
+			!(local_player->flags() & entity_flags::fl_onground)) {
+
+			cmd->buttons &= ~command_buttons::in_jump;
+		}
 	}
 
 	return result;	
@@ -76,13 +82,8 @@ void __stdcall hooks::paint_traverse(unsigned int panel, bool force_repaint, boo
 
 		// do rendering here
 		render::text("csgo-sdk", 10, 10, fonts::tahoma);
-		render::text("colorful", 10, 10 + 16, fonts::tahoma_bold, color(66, 135, 245, 255));
 
-		render::filled_rect(10, 26 + 16, 100, 50, color(255, 255, 255, 255));
-
-		render::outlined_rect(10, 42 + 16, 100, 100, color(255, 255, 255, 255));
-
-		render::line(10, 50 + 58, 100, 124, color(255, 255, 255, 255));
+		gui::render();
 	}
 	else if (panel_name == fnv::hash("FocusOverlayPanel")) {
 
