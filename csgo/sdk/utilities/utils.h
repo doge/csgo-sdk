@@ -27,5 +27,4 @@ namespace utils {
 		// we have the functions address now so let's call it
 		return create_interface(version_string, nullptr);
 	};
-
 }

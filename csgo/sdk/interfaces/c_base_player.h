@@ -8,6 +8,25 @@
 
 class c_base_player : public c_base_entity {
 public:
+
+	bool alive() {
+
+		return this->health() <= 0;
+	}
+
+	bool is_valid() {
+
+		if (this->alive()) {
+			return false;
+		}
+
+		if (this->networkable()->dormant()) {
+			return false;
+		}
+
+		return true;
+	}
+
 	netvar_fn(flags, "CBasePlayer->m_fFlags", int)
 	netvar_fn(health, "CBasePlayer->m_iHealth", int)
 	netvar_fn(life_state, "CBasePlayer->m_lifeState", int)

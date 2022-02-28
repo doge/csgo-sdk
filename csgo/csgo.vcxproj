@@ -149,6 +149,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="cheat\features\visuals\visuals.cpp" />
     <ClCompile Include="cheat\gui\gui.cpp" />
     <ClCompile Include="cheat\hooks\hooks.cpp" />
     <ClCompile Include="cheat\input\input.cpp" />
@@ -163,6 +164,7 @@
     <ClCompile Include="sdk\netvars\netvars.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cheat\features\visuals\visuals.h" />
     <ClInclude Include="cheat\gui\gui.h" />
     <ClInclude Include="cheat\gui\settings.h" />
     <ClInclude Include="cheat\hooks\hooks.h" />
@@ -179,6 +181,7 @@
     <ClInclude Include="dependencies\minhook\trampoline.h" />
     <ClInclude Include="sdk\interfaces\c_base_player.h" />
     <ClInclude Include="sdk\interfaces\c_user_cmd.h" />
+    <ClInclude Include="sdk\interfaces\iv_debug_overlay.h" />
     <ClInclude Include="sdk\interfaces\i_client.h" />
     <ClInclude Include="sdk\interfaces\c_base_entity.h" />
     <ClInclude Include="sdk\interfaces\i_engine_client.h" />

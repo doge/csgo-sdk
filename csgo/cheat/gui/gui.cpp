@@ -57,9 +57,10 @@ void gui::render() {
 	gui::y_offset = 12 + 16;
 
 	// the total amount of items to render
-	gui::element_count = 2;
+	gui::element_count = 3;
 
 	// elements
 	item("bhop", gui::settings::bhop);
 	item("radar", gui::settings::radar);
+	item("visuals", gui::settings::visuals);
 }

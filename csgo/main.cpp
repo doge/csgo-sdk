@@ -34,6 +34,7 @@ void cheat(HMODULE instance) {
 		interfaces::engine = utils::get_interface<i_engine_client>("VEngineClient014", "engine.dll");
 		interfaces::surface = utils::get_interface<i_surface>("VGUI_Surface031", "vguimatsurface.dll");
 		interfaces::vgui_panel = utils::get_interface<i_panel>("VGUI_Panel009", "vgui2.dll");
+		interfaces::debug_overlay = utils::get_interface<iv_debug_overlay>("VDebugOverlay004", "engine.dll");
 
 		// netvars, fonts and hooks
 		netvars::setup();

@@ -5,17 +5,21 @@
 #include "../gui/gui.h"
 #include "../gui/settings.h"
 
+#include "../render/render.h"
+#include "../render/fonts/fonts.h"
+
 #include "../input/input.h"
 
 #include "../../sdk/valve/flags.h"
+
+#include "../../sdk/utilities/utils.h"
 
 #include "../../sdk/interfaces/variables.h"
 #include "../../sdk/interfaces/c_base_player.h"
 
 #include "../../dependencies/minhook/MinHook.h"
 
-#include "../render/render.h"
-#include "../render/fonts/fonts.h"
+#include "../../cheat/features/visuals/visuals.h"
 
 void hooks::setup() {
 
@@ -84,6 +88,11 @@ void __stdcall hooks::paint_traverse(unsigned int panel, bool force_repaint, boo
 		render::text("csgo-sdk", 10, 10, fonts::tahoma);
 
 		gui::render();
+
+		if (gui::settings::visuals) {
+
+			visuals::render();
+		}
 	}
 	else if (panel_name == fnv::hash("FocusOverlayPanel")) {
 

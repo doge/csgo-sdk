@@ -1,9 +1,7 @@
 #include "netvars.h"
-#include "../utilities/utils.h"
 
 #include "../interfaces/i_client.h"
 #include "../interfaces/variables.h"
-
 
 #include <format>
 #include <ctype.h>

@@ -82,8 +82,12 @@ public:
 		return (*(fn**)this)[74](this, font);
 	}
 
-	void get_text_size(unsigned long font, const wchar_t* text, int& w, int& h) {
+	void get_text_size(unsigned long font, const char* text, int& w, int& h) {
+
+		wchar_t data[32];
+		swprintf(data, 32, L"%hs", text);
+
 		using fn = void (__thiscall*)(i_surface*, unsigned long, const wchar_t*, int&, int&);
-		return (*(fn**)this)[79](this, font, text, w, h);
+		return (*(fn**)this)[79](this, font, data, w, h);
 	}
 };
