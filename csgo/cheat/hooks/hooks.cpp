@@ -84,17 +84,6 @@ void __stdcall hooks::paint_traverse(unsigned int panel, bool force_repaint, boo
 		render::text("csgo-sdk", 10, 10, fonts::tahoma);
 
 		gui::render();
-
-		if (interfaces::engine->is_in_game()) {
-			auto local_player = reinterpret_cast<c_base_player*>(interfaces::entity_list->get_client_entity(interfaces::engine->local_player()));
-
-			auto balls = local_player->vec_angles();
-
-			char balls2[128];
-			sprintf_s(balls2, "x: %f y: %f z: %f", balls.x, balls.y, balls.z);
-
-			render::text(balls2, 100, 100, fonts::tahoma_bold, color(0, 155, 255, 255));
-		}
 	}
 	else if (panel_name == fnv::hash("FocusOverlayPanel")) {
 
