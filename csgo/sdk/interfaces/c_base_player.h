@@ -24,11 +24,11 @@ public:
 	netvar_fn(has_heavy_armor, "CCSPlayer->m_bHasHeavyArmor", bool)
 	netvar_fn(client_side_animation, "CBaseAnimating->m_bClientSideAnimation", bool)
 
-	netvar_fn(abs_angles, "CBaseEntity->m_angAbsAngles", qangle)
+	netvar_fn(abs_angles, "CBaseEntity->m_angAbsAngles", math::qangle_t)
 
-	netvar_fn(vec_velocity, "CBasePlayer->m_vecVelocity[0]", vec3_t)
-	netvar_fn(vec_view_offset, "CBasePlayer->m_vecViewOffset[0]", vec3_t)
-	netvar_fn(view_punch_angle, "CBasePlayer->m_viewPunchAngle", vec3_t)
-	netvar_fn(aim_punch_angle, "CBasePlayer->m_aimPunchAngle", vec3_t)
-	netvar_fn(abs_origin, "CBaseEntity->m_angAbsOrigin", vec3_t)
+	netvar_fn(vec_velocity, "CBasePlayer->m_vecVelocity[0]", math::vec3_t)
+	netvar_fn(vec_view_offset, "CBasePlayer->m_vecViewOffset[0]", math::vec3_t)
+	netvar_fn(view_punch_angle, "CBasePlayer->m_viewPunchAngle", math::vec3_t)
+	netvar_fn(aim_punch_angle, "CBasePlayer->m_aimPunchAngle", math::vec3_t)
+	netvar_fn(abs_origin, "CBaseEntity->m_angAbsOrigin", math::vec3_t)
 };

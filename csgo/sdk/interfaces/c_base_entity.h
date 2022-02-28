@@ -38,8 +38,8 @@ public:
 
 	netvar_fn(anim_time, "CBaseEntity->m_flAnimTime", float)
 
-	netvar_fn(vec_mins, "CBaseEntity->m_vecMins", vec3_t)
-	netvar_fn(vec_maxs, "CBaseEntity->m_vecMaxs", vec3_t)
-	netvar_fn(vec_origin, "CBaseEntity->m_vecOrigin", vec3_t)
-	netvar_fn(vec_angles, "CBaseEntity->m_vecAngles", vec3_t)
+	netvar_fn(vec_mins, "CBaseEntity->m_vecMins", math::vec3_t)
+	netvar_fn(vec_maxs, "CBaseEntity->m_vecMaxs", math::vec3_t)
+	netvar_fn(vec_origin, "CBaseEntity->m_vecOrigin", math::vec3_t)
+	netvar_fn(vec_angles, "CBaseEntity->m_vecAngles", math::vec3_t)
 };

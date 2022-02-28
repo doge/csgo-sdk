@@ -37,8 +37,8 @@ struct c_user_cmd
 	void* vmt;
 	int command_number;
 	int tick_count;
-	vec3_t view_point;
-	vec3_t aim_direction;
+	math::vec3_t view_point;
+	math::vec3_t aim_direction;
 	float forward_move;
 	float side_move;
 	float up_move;
@@ -50,6 +50,6 @@ struct c_user_cmd
 	short mouse_delta_x;
 	short mouse_delta_y;
 	bool has_been_predicted;
-	vec3_t head_angles;
-	vec3_t head_offset;
+	math::vec3_t head_angles;
+	math::vec3_t head_offset;
 };

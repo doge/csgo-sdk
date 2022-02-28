@@ -16,13 +16,13 @@ public:
 		return (*(fn**)this)[12](this);
 	};
 
-	void view_angles(vec3_t& view) {
-		using fn = void (__thiscall*)(i_engine_client*, vec3_t&);
+	void view_angles(math::vec3_t& view) {
+		using fn = void (__thiscall*)(i_engine_client*, math::vec3_t&);
 		return (*(fn**)this)[18](this, view);
 	}
 
-	void set_view_angles(vec3_t& view) {
-		using fn = void (__thiscall*)(i_engine_client*, vec3_t&);
+	void set_view_angles(math::vec3_t& view) {
+		using fn = void (__thiscall*)(i_engine_client*, math::vec3_t&);
 		return (*(fn**)this)[19](this, view);
 	}
 
