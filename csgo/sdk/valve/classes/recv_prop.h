@@ -4,8 +4,7 @@
 
 // https://github.com/ValveSoftware/source-sdk-2013/blob/0d8dceea4310fde5706b3ce1c70609d72a38efdf/sp/src/public/dt_recv.h#L87
 
-enum class send_prop_type : int
-{
+enum class send_prop_type : int {
 	integer = 0,
 	floating_point,
 	vector,
@@ -17,10 +16,10 @@ enum class send_prop_type : int
 	sendproptypemax
 };
 
-struct data_variant
-{
-	union
-	{
+struct data_variant {
+
+	union {
+
 		float	m_float;
 		long	m_int;
 		char*	m_string;
@@ -33,8 +32,8 @@ struct data_variant
 };
 
 struct recv_prop;
-struct recv_table
-{
+struct recv_table {
+
 	recv_prop*	props;
 	int			props_count;
 	void*		decoder;
@@ -43,8 +42,8 @@ struct recv_table
 	bool		in_main_list;
 };
 
-struct recv_prop
-{
+struct recv_prop {
+
 	char* name;
 	send_prop_type type;
 	int flags;

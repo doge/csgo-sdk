@@ -7,6 +7,7 @@
 #include "../netvars/netvars.h"
 
 class c_base_player : public c_base_entity {
+
 public:
 
 	bool alive() {

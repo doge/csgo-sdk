@@ -2,8 +2,8 @@
 
 #include "recv_prop.h"
 
-class client_class
-{
+class client_class {
+
 public:
 	void* create_client_class;
 	void* create_event;

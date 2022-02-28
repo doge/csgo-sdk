@@ -5,6 +5,7 @@
 #include "../utilities/math.h"
 
 class c_base_entity {
+
 public:
 
 	struct networkable_t {

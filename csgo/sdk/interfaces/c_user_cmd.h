@@ -2,8 +2,8 @@
 
 #include "../utilities/math.h"
 
-enum command_buttons : int
-{
+enum command_buttons : int {
+
 	in_attack = (1 << 0),
 	in_jump = (1 << 1),
 	in_duck = (1 << 2),
@@ -32,8 +32,8 @@ enum command_buttons : int
 	in_middle_attack = (1 << 25)
 };
 
-struct c_user_cmd
-{
+struct c_user_cmd {
+
 	void* vmt;
 	int command_number;
 	int tick_count;

@@ -1,7 +1,7 @@
 #pragma once
 
-enum entity_flags : int
-{
+enum entity_flags : int {
+
 	fl_onground = (1 << 0),
 	fl_ducking = (1 << 1),
 	fl_animducking = (1 << 2),

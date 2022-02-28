@@ -4,8 +4,7 @@
 
 #include <stdint.h>
 
-struct player_info_t
-{
+struct player_info_t {
 	uint64_t unknown;
 
 	union
@@ -19,7 +18,7 @@ struct player_info_t
 	};
 
 	char name[128];
-	int	 id;
+	int id;
 	char steam_id[33];
 	unsigned long friends_id;
 	char friends_name[128];
@@ -29,8 +28,8 @@ struct player_info_t
 	unsigned char files_downloaded;
 };
 
-class i_engine_client
-{
+class i_engine_client {
+
 public:
 
 	void screen_size(int& width, int& height) {
