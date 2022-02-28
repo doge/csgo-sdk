@@ -19,8 +19,8 @@ enum e_font_flags
 	fontflag_bitmap = 0x800,		// compiled bitmap font - no fallbacks
 };
 
-class i_surface
-{
+class i_surface {
+
 public:
 	const char* draw_set_color(int r, int g, int b, int a) {
 		using fn = const char* (__thiscall*)(i_surface*, int, int, int, int);
@@ -75,6 +75,11 @@ public:
 	void draw_render_text(const wchar_t* text, int textLen) {
 		using fn = void (__thiscall*)(i_surface*, const wchar_t*, int, int);
 		return (*(fn**)this)[28](this, text, textLen, 0);
+	}
+
+	int get_font_tall(unsigned long font) {
+		using fn = int(__thiscall*)(i_surface*, unsigned long);
+		return (*(fn**)this)[74](this, font);
 	}
 
 	void get_text_size(unsigned long font, const wchar_t* text, int& w, int& h) {

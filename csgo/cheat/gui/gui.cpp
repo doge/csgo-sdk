@@ -8,6 +8,7 @@
 #include "../render/fonts/fonts.h"
 
 #include "../input/input.h"
+#include "../../sdk/interfaces/variables.h"
 
 void gui::item(const char* name, bool& variable) {
 
@@ -29,19 +30,19 @@ void gui::item(const char* name, bool& variable) {
 
 	// item rendering
 	if (variable) {
-		render::text(to_render.c_str(), 10 + 16, gui::y_offset, fonts::tahoma, color(145, 219, 88, 255));
+		render::text(to_render.c_str(), 10 + 16, y_offset, fonts::tahoma, color(145, 219, 88, 255));
 	}
 	else {
-		render::text(to_render.c_str(), 10 + 16, gui::y_offset, fonts::tahoma);
+		render::text(to_render.c_str(), 10 + 16, y_offset, fonts::tahoma);
 	}
 
 	// input handling
-	if (gui::selected_item == gui::render_item && input::click(VK_RETURN)) {
+	if (selected_item == render_item && input::click(VK_RETURN)) {
 		variable = !variable;
 	}
 
-	// add the height of font::tahoma + 2
-	gui::y_offset += 16 + 2;
+	// add the height of the menu font plus some padding
+	y_offset += interfaces::surface->get_font_tall(fonts::tahoma) + 2;
 	render_item += 1;
 }
 
@@ -51,12 +52,11 @@ void gui::render() {
 		return;
 	}
 
-	// reset the y offset and the index of the item
-	// we're currently rendering
+	// reset vars
 	gui::render_item = 0;
 	gui::y_offset = 12 + 16;
 
-	// the count of the amount of items we're rendering
+	// the total amount of items to render
 	gui::element_count = 2;
 
 	// elements

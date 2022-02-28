@@ -8,8 +8,7 @@ class i_client
 {
 public:
 
-	client_class* get_all_classes()
-	{
+	client_class* get_all_classes() {
 		using func = client_class * (__thiscall*)(i_client*);
 		return (*(func**)this)[8](this);
 	}

@@ -1,6 +1,7 @@
 #pragma once
 
 namespace input {
+
 	void handle();
 
 	bool click(int keycode);

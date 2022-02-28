@@ -190,6 +190,7 @@
     <ClInclude Include="sdk\utilities\utils.h" />
     <ClInclude Include="sdk\valve\classes\client_class.h" />
     <ClInclude Include="sdk\utilities\fnv.h" />
+    <ClInclude Include="sdk\valve\classes\collideable.h" />
     <ClInclude Include="sdk\valve\classes\recv_prop.h" />
     <ClInclude Include="sdk\valve\flags.h" />
   </ItemGroup>
