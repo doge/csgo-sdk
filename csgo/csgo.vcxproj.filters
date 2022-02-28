@@ -143,5 +143,8 @@
     <ClInclude Include="sdk\valve\classes\collideable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="sdk\utilities\math.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

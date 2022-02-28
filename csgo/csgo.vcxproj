@@ -187,6 +187,7 @@
     <ClInclude Include="sdk\interfaces\i_surface.h" />
     <ClInclude Include="sdk\interfaces\variables.h" />
     <ClInclude Include="sdk\netvars\netvars.h" />
+    <ClInclude Include="sdk\utilities\math.h" />
     <ClInclude Include="sdk\utilities\utils.h" />
     <ClInclude Include="sdk\valve\classes\client_class.h" />
     <ClInclude Include="sdk\utilities\fnv.h" />

@@ -1,9 +1,6 @@
 #pragma once
 
-struct vec3_t
-{
-	float x, y, z;
-};
+#include "../utilities/math.h"
 
 enum command_buttons : int
 {

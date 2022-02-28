@@ -2,6 +2,8 @@
 
 #include "../netvars/netvars.h"
 
+#include "../utilities/math.h"
+
 class c_base_entity {
 public:
 
@@ -28,5 +30,16 @@ public:
 		return (*(func**)this)[294](this);
 	}
 
+	netvar_fn(team_num, "CBaseEntity->m_iTeamNum", int)
+	netvar_fn(model_index, "CBaseEntity->m_nModelIndex", int)
+
 	netvar_fn(spotted, "CBaseEntity->m_bSpotted", bool)
+	netvar_fn(should_glow, "CBaseEntity->m_bShouldGlow", bool)
+
+	netvar_fn(anim_time, "CBaseEntity->m_flAnimTime", float)
+
+	netvar_fn(vec_mins, "CBaseEntity->m_vecMins", vec3_t)
+	netvar_fn(vec_maxs, "CBaseEntity->m_vecMaxs", vec3_t)
+	netvar_fn(vec_origin, "CBaseEntity->m_vecOrigin", vec3_t)
+	netvar_fn(vec_angles, "CBaseEntity->m_vecAngles", vec3_t)
 };
