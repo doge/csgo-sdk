@@ -5,13 +5,15 @@
 #include <stdint.h>
 
 struct player_info_t {
+
 	uint64_t unknown;
 
-	union
-	{
+	union {
+
 		uint64_t xuid;
-		struct
-		{
+
+		struct {
+
 			uint32_t xuid_low;
 			uint32_t xuid_high;
 		};

@@ -155,5 +155,8 @@
     <ClInclude Include="cheat\features\visuals\visuals.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="sdk\interfaces\i_client_mode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

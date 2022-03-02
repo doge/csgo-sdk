@@ -184,6 +184,7 @@
     <ClInclude Include="sdk\interfaces\iv_debug_overlay.h" />
     <ClInclude Include="sdk\interfaces\i_client.h" />
     <ClInclude Include="sdk\interfaces\c_base_entity.h" />
+    <ClInclude Include="sdk\interfaces\i_client_mode.h" />
     <ClInclude Include="sdk\interfaces\i_engine_client.h" />
     <ClInclude Include="sdk\interfaces\i_entity_list.h" />
     <ClInclude Include="sdk\interfaces\i_panel.h" />

@@ -16,6 +16,7 @@
 
 #include "../../sdk/interfaces/variables.h"
 #include "../../sdk/interfaces/c_base_player.h"
+#include "../../sdk/interfaces/i_client_mode.h"
 
 #include "../../dependencies/minhook/MinHook.h"
 
@@ -26,7 +27,7 @@ void hooks::setup() {
 	MH_Initialize();
 
 	MH_CreateHook(
-		(*static_cast<void***>(interfaces::client_mode))[24],
+		*reinterpret_cast<void***>(interfaces::client_mode)[24],
 		&hooks::create_move,
 		reinterpret_cast<void**>(&o_create_move_hook)
 	);
@@ -67,7 +68,7 @@ bool __stdcall hooks::create_move(float frame_time, c_user_cmd* cmd) {
 	// bhop
 	if (gui::settings::bhop) {
 
-		if (cmd->buttons & command_buttons::in_jump && 
+		if (cmd->buttons & command_buttons::in_jump &&
 			!(local_player->flags() & entity_flags::fl_onground)) {
 
 			cmd->buttons &= ~command_buttons::in_jump;
