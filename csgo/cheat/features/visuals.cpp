@@ -1,11 +1,10 @@
 #include "visuals.h"
 
-#include "../../../cheat/render/render.h"
-#include "../../../cheat/render/fonts/fonts.h"
+#include "../../cheat/render/render.h"
+#include "../../cheat/render/fonts/fonts.h"
 
-#include "../../../sdk/interfaces/c_base_player.h"
-
-#include "../../../sdk/interfaces/variables.h"
+#include "../../sdk/interfaces/variables.h"
+#include "../../sdk/interfaces/c_base_player.h"
 
 void visuals::render() {
 

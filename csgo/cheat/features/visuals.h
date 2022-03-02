@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../../sdk/interfaces/c_base_entity.h"
+#include "../../sdk/interfaces/c_base_entity.h"
 
 namespace visuals {
 

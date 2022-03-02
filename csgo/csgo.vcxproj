@@ -149,9 +149,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="cheat\features\visuals\visuals.cpp" />
+    <ClCompile Include="cheat\hooks\create_move.cpp" />
+    <ClCompile Include="cheat\features\visuals.cpp" />
     <ClCompile Include="cheat\gui\gui.cpp" />
     <ClCompile Include="cheat\hooks\hooks.cpp" />
+    <ClCompile Include="cheat\hooks\paint_traverse.cpp" />
+    <ClCompile Include="cheat\hooks\screen_size_changed.cpp" />
     <ClCompile Include="cheat\input\input.cpp" />
     <ClCompile Include="cheat\render\fonts\fonts.cpp" />
     <ClCompile Include="cheat\render\render.cpp" />
@@ -164,7 +167,7 @@
     <ClCompile Include="sdk\netvars\netvars.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cheat\features\visuals\visuals.h" />
+    <ClInclude Include="cheat\features\visuals.h" />
     <ClInclude Include="cheat\gui\gui.h" />
     <ClInclude Include="cheat\gui\settings.h" />
     <ClInclude Include="cheat\hooks\hooks.h" />
