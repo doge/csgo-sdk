@@ -15,13 +15,21 @@ public:
 		return this->health() <= 0;
 	}
 
-	bool is_valid() {
+	bool is_valid(c_base_player* local) {
+
+		if (this == local) {
+			return false;
+		}
 
 		if (this->alive()) {
 			return false;
 		}
 
 		if (this->networkable()->dormant()) {
+			return false;
+		}
+
+		if (this->team_num() == local->team_num()) {
 			return false;
 		}
 

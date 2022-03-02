@@ -14,6 +14,8 @@ void visuals::render() {
 		return;
 	}
 
+	auto local_player = reinterpret_cast<c_base_player*>(interfaces::entity_list->get_client_entity(interfaces::engine->local_player()));
+
 	for (int i = 1; i < 32; i++) {
 
 		const auto ent = reinterpret_cast<c_base_player*>(interfaces::entity_list->get_client_entity(i));
@@ -26,8 +28,7 @@ void visuals::render() {
 
 		if (interfaces::debug_overlay->world_to_screen(ent->vec_origin(), ent_pos)) {
 
-			// 1 is the local player
-			if (ent->is_valid() && i != 1) {
+			if (ent->is_valid(local_player)) {
 
 				// do rendering here
 
